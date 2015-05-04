@@ -1,0 +1,48 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+{% block messages %}
+    <div>
+        {% for flashMessage in app.session.flashbag.get('warning') %}
+            {{ flashMessage }}
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block body %}
+    <br>
+    <div class="container">
+        <div class="jumbotron">
+            <button class="btn btn-primary btn-xs deconnexion"><a class="lien" href="{{ path('gsb_visiteurs_deconnexion') }}" 
+                                                       accesskey=""title="Déconnexion">
+                    Se déconnecter
+                </a></button>
+            <h2> Gestion des Fiches de Frais COMPTABLE
+            </h2>
+            <hr>
+            <h3> Frais d'un Visiteur </h3>
+            <table class="table-striped table-bordered table-responsive tableaux" style="text-align: center;">
+            <thead>
+            <th>
+                ID
+            </th>
+            <th>
+                Mois
+            </th>
+            <th>
+                Quantité
+            </th>
+            </thead>
+            <tbody>
+                {% for frais in listeFraisVis %}
+                <tr>
+                    <td>{{ frais['idFraisForfait'] }}</td>
+                    <td>{{ frais['mois'] }}</td>
+                    <td>{{ frais['quantite'] }}</td>
+                </tr>
+                {% else %}
+                La liste est vide
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    </div>
+{#                <script src="{{ asset('bundles/gsbgsb/js/vuFicheFrais.js') }}"></script>#}
+{% endblock %}

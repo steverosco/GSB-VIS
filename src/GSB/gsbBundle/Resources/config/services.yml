@@ -1,0 +1,11 @@
+# services.yml
+imports:
+    - { resource: "parameters.yml" }
+services:
+  db1:
+    class: %pdo.class%
+    arguments:
+      - %database.db1.dsn%
+      - %database.db1.username%
+      - %database.db1.password%
+      - %pdo.options%

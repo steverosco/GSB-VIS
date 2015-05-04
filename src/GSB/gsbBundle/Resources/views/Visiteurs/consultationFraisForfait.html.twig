@@ -1,0 +1,45 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+{% block body %}
+    {% block bloc1 %}
+        <br>
+        <div class="container">
+            <div class="jumbotron">
+                <button class="btn btn-primary btn-xs deconnexion"<a class="lien" href="{{ path('gsb_visiteurs_deconnexion') }}" 
+                                                                     accesskey=""title="Déconnexion">
+                        Se déconnecter
+                    </a></button>
+                <h2> Bienvenue {{ app.session.get('nom') }} 
+                    {{ app.session.get('prenom') }}
+                </h2>
+                <hr>
+                <h3>Consultation de la fiche de frais du mois {{numMois}}-{{numAnnee}} :</h3>
+                <div class="forfait">
+                    <fieldset><legend> Frais forfaitisés </legend>
+                        <table class="table-responsive table-striped table-bordered">
+                            <tr>
+                                {% for unFrais in lesFraisForfait %}
+                                    {%   set libelle = unFrais.libelle %}
+                                    <th> {{libelle}}</th>
+                                    {% endfor %}  
+                            </tr>
+                            <tr>
+                                {% for unFrais in  lesFraisForfait %}
+                                    {%   set quantite = unFrais.quantite %}
+                                    <td >{{quantite}} </td>
+                                {% endfor %}  
+                            </tr>
+                        </table>
+                    </fieldset>
+                    <br/>
+                    <button class="btn btn-info btn-xs"><a class="lien" href="{{ path('gsb_consultation_frais') }}" >
+                        Autre Fiche
+                        </a></button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger btn-xs" style="float: right;"><a class="lien" href = "{{ path('gsb_homepage_visiteurs') }}"> 
+                        Accueil
+                        </a></button>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+{% block body %}
+    {% block bloc1 %}
+        <br>
+        <div class="container">
+            <div class="jumbotron">
+                <button class="btn btn-primary btn-xs deconnexion"<a class="lien" href="{{ path('gsb_visiteurs_deconnexion') }}" 
+                                                                     accesskey=""title="Déconnexion">
+                        Se déconnecter
+                    </a></button>
+                <h2> {{ app.session.get('nom') }} 
+                    {{ app.session.get('prenom') }}
+                </h2>
+                <hr>
+                    <form method="post">
+                        <div class="listeMois"> 
+                            <label  for="lstMois" accesskey="n">Sélectionner la période : </label>
+                            <select name="lastMois" class="form-control" style="width: 200px;">
+                                {% for item in listeMois %}
+                                    {% set mois = item.mois %}
+                                    {% set numAnnee = item.numAnnee %}
+                                    {% set numMois =  item.numMois %}
+                                    <option value="{{ mois }}"> {{ numMois }}/{{ numAnnee }} </option>
+                                {% endfor %}
+                            </select>
+
+
+                            <div class="buttonsListeMois">
+                                <input class="btn btn-info" id="ok" type="submit" value="Valider" size="20" />
+                                <input class="btn btn-danger" id="annuler" type="reset" value="Effacer" size="20" />
+                            </div>
+                        </div>
+                    </form>
+                            <button class="btn btn-danger btn-xs" style="float: right;"><a class="lien" href = "{{ path('gsb_homepage_visiteurs') }}"> 
+                        Accueil
+                        </a></button>
+                </div>
+            </div>
+        {% endblock %}
+    {% endblock %}

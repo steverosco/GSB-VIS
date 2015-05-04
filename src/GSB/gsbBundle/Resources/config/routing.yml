@@ -1,0 +1,27 @@
+gsb_homepage:
+    path:   /index
+    defaults: { _controller: GSBgsbBundle:Default:index }
+gsb_homepage_visiteurs:
+    path:   /indexV
+    defaults: { _controller: GSBgsbBundle:FraisVisiteurs:accueilVisiteurs }
+gsb_homepage_comptable:
+    path:   /indexC
+    defaults: { _controller: GSBgsbBundle:FraisComptable:listeVisiteursAccueilComptable }
+gsb_saisie_frais:
+    path: /saisieFrais
+    defaults: { _controller: GSBgsbBundle:FraisVisiteurs:saisirFraisForfait }
+gsb_valide_frais:
+    path: /valideFrais
+    defaults: { _controller: GSBgsbBundle:FraisVisiteurs:validerFraisForfait }
+gsb_consultation_frais:
+    path: /consultationFrais
+    defaults: { _controller: GSBgsbBundle:FraisVisiteurs:consulterFraisForfait }
+gsb_consultation_Frais_Mois:
+    path: /listeFraisForfait
+    defaults: { _controller: GSBgsbBundle:FraisVisiteurs:listerFraisForfait }
+gsb_visiteurs_deconnexion:
+    path: /index
+    defaults: { _controller: GSBgsbBundle:Default:seDeconnecter }
+gsb_comptable_vuFraisVis:
+    path: /vuFrais
+    defaults: { _controller: GSBgsbBundle:FraisComptable:listeFraisVis }

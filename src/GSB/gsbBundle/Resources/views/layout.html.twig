@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+  <head>
+    <title>Laboratoire Galaxy-Swiss-Bourdin</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <link href="{{ asset('bundles/gsbgsb/css/styles.css') }}" 
+          rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/gsbgsb/css/bootstrap.min.css') }}" 
+          rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/gsbgsb/css/bootstrap-theme.min.css') }}" 
+          rel="stylesheet" type="text/css" />
+    <script src="{{ asset('bundles/gsbgsb/js/jquery-2.1.3.js') }}"></script>
+    {#{% stylesheets '@GSBgsbBundle/Resources/public/css/styles.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+    {% endstylesheets %}#}
+  </head>
+        
+        
+
+  <body>
+      
+    <div id="entete">
+        <img src="{{ asset('bundles/gsbgsb/images/logo.png') }}" 
+             id="logoGSB" 
+             alt="Laboratoire Galaxy-Swiss Bourdin" 
+             title="Laboratoire Galaxy-Swiss Bourdin"
+        />
+        <h1><br/>Laboratoire Galaxy Swiss-Bourdin</h1>
+    </div>
+
+     {% block messages %}
+     {% endblock %}
+     {% block menu %}
+     {% endblock %}
+     {% block body %}
+        {% block bloc1 %}
+        {% endblock %}
+     {% endblock %}
+        
+   
+  </body>
+</html>

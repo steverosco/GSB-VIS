@@ -1,0 +1,36 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+{% block messages %}
+    <div>
+        {% for flashMessage in app.session.flashbag.get('warning') %}
+            {{ flashMessage }}
+        {% endfor %}
+
+    </div>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <div class="container">
+        <div class="jumbotron">
+            <button class="btn btn-primary btn-xs deconnexion"><a class="lien" href="{{ path('gsb_visiteurs_deconnexion') }}" accesskey=""title="Déconnexion">
+                    Se déconnecter
+                </a></button>
+            <h2> Bienvenue {{ app.session.get('nom') }} 
+                {{ app.session.get('prenom') }}
+            </h2>
+            <hr>
+            <h3> Gestion des Fiches de Frais </h3>
+            <ul>
+                <li> <a href="{{ path('gsb_consultation_frais') }}"
+                        title="Consultation"><h4>Consulter mes fiches de frais</h4>
+                    </a>
+                </li>
+
+                <li> <a href="{{ path('gsb_saisie_frais') }}" 
+                        title="Saisie"><h4>Saisir mes fiches de frais</h4>
+                    </a> 
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

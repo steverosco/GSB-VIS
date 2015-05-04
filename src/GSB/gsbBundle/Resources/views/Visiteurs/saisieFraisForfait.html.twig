@@ -1,0 +1,46 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+{% block body %}
+    {% block bloc1 %}
+        {% include 'GSBgsbBundle:Visiteurs:erreurs.html.twig' with {'lesErreurs':lesErreursForfait } %}
+        <div class="container">
+            <div class="jumbotron">
+                <button class="btn btn-primary btn-xs deconnexion"<a class="lien" href="{{ path('gsb_visiteurs_deconnexion') }}" 
+                                                                     accesskey=""title="Déconnexion">
+                        Se déconnecter
+                    </a></button>
+                <h2> {{ app.session.get('nom') }} 
+                    {{ app.session.get('prenom') }}
+                </h2>
+                <hr>
+                <h2> Fiche de frais du mois {{numMois}}-{{numAnnee}}</h2>
+                <form action="{{ path('gsb_saisie_frais') }}" method="POST">
+                    <div class="corpsForm">    
+                        <fieldset>
+                            <legend>Frais au Forfait : </legend>
+                            {% for unFrais in  lesFraisForfait %}
+                                {% set idFrais = unFrais.idFrais %}
+                                {% set libelle = unFrais.libelle %}
+                                {% set quantite = unFrais.quantite %}
+                                <p>
+                                    <label class="col-md-offset-1 col-lg-3" 
+                                           for="idFrais"> {{ libelle }} 
+                                    </label>
+                                    <input type="text" id="idFrais" 
+                                           name="lesFrais[{{ idFrais }}]" 
+                                           size="10" maxlength="5" 
+                                           value="{{ quantite }}" class="form-control" style="width:100px;" >
+                                </p>
+                            {%endfor%}
+                        </fieldset>
+                        <input class ="btn btn-success" type="submit" value="Valider" 
+                               name="valider">
+                    </div>    
+                </form>
+
+                <button class="btn btn-danger btn-xs" style="float: right;"><a class="lien" href = "{{ path('gsb_homepage_visiteurs') }}"> 
+                        Accueil
+                        </a></button>
+            </div>
+        </div>
+    {% endblock %}
+{% endblock %}  

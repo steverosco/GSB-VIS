@@ -1,0 +1,151 @@
+/* Styles GSB - 2014 */
+
+.lien{
+    color:#fff !important;
+    text-decoration: none !important;
+}
+
+#entete{
+    /*background:url('bundles/ahegsbBundle/images/logo.png');*/
+    background-color: steelblue;
+    color: #980101;
+    border: solid 0.1em steelblue;
+    border-radius: 10px ;
+    padding: 0em;
+    /*border-collapse: separate;*/ 
+    height:125px ;
+    margin-left: 1.1em;
+    margin-right: 1.2em;
+}
+
+#entete #logoGSB {
+    float: left;
+    margin-left: 0.1em;
+    border-radius: 10px ;
+    width: 191px;
+    height: 125px;
+    background-color: whitesmoke;
+    position: absolute;
+}
+
+#entete h1 {
+    color: whitesmoke; 
+    background-color: steelblue ;
+    margin: 0.5em;
+    text-align: center;
+    margin-left: 240px ;
+}
+.menu,.accueil {
+    background-color: steelblue;
+    margin-left:0.0em ;
+    margin-right:0.1em ;
+    border-radius: 10px;
+    color:#FFF;
+    /*height: 100%;
+    width: 100%;*/
+}
+.accueil table {
+    width: 100% ;
+}
+.accueil td {
+    width:40% ;
+}
+#contenu h2 {
+    /*background-color: steelblue ;*/
+    color: whitesmoke;
+    margin-left: 2em;
+    text-align: left ;
+    border-radius: 1em ;
+    margin-right: 1em;
+}
+
+legend {
+    font-weight: bold;
+    font-size: x-large ;
+}
+.erreur {
+    background-color: rgb(237,210,229);
+    color: rgb(203,28,128);
+    font-size: 2.1em;
+    width: 80%;
+    text-align: center ;
+    margin-bottom: 2em ;
+    margin-top: 2em;
+    margin-left: 4em;
+    margin-right: 4em ;
+}
+.identification {
+       padding-bottom: 20px;
+       margin-left: 4em;
+}
+
+
+/*.menu{
+    /*background-color: steelblue;
+    color: #eeffee;  
+    border-radius: 10px;
+    height: 100%;
+}
+*/
+.menu h3 {
+        padding-top: 25px;
+        padding-left: 15px;
+}
+
+
+.menu a {
+        margin-right: 10px;
+        font-size: 22px;
+        color: whitesmoke;
+        text-align: left;
+}
+
+.menu ul li a:hover {
+        font-weight: bold;
+        background: none;
+        
+        
+}
+
+
+.listeMois label {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: normal;
+        color: black ;
+}
+
+.buttonsListeMois {
+        margin-top: 15px;
+}
+
+.formLabel {
+    font-size: medium ;
+    font-weight: bold ;
+}
+
+
+.forfait {
+    margin-left: 1px;
+}
+
+.forfait table {
+    border-color : #269abc ;
+    border-spacing: 2px 2px;
+    padding:3px ;
+}
+.forfait tr {
+    padding: 1px;
+}
+.forfait td {
+    text-align: center;
+}
+
+.containerForm{
+    width:800px;
+}
+
+.deconnexion{
+    float: right;
+}

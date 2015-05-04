@@ -1,0 +1,27 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+
+{% block bloc1 %}
+<br>
+<div class="col-md-3">
+    <fieldset class="accueil">
+        <table>
+            <tr>
+                <td>
+                    <h2> Bienvenue {{ app.session.get('nom') }} 
+                       {{ app.session.get('prenom') }}
+                    </h2> 
+                </td>
+                <td>
+                    <h2> Gestion des Fiches de Frais </h2>
+                </td>
+                <td>
+                    <h3>
+                    <a href="{{ path('gsb_visiteurs_deconnexion') }}" 
+                        accesskey=""title="Déconnexion">
+                        Se déconnecter
+                    </a> 
+                    </h3>
+                </td>
+            </tr>
+        </table>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "GSBgsbBundle::layout.html.twig" %}
+{% block messages %}
+    <div>
+        {% for flashMessage in app.session.flashbag.get('warning') %}
+            {{ flashMessage }}
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block body %}
+    <br>
+    <div class="container">
+        <div class="jumbotron">
+            <button class="btn btn-primary btn-xs deconnexion"><a class="lien" href="{{ path('gsb_visiteurs_deconnexion') }}" 
+                                                                  accesskey=""title="Déconnexion">
+                    Se déconnecter
+                </a></button>
+            <h2> Bienvenue {{ app.session.get('nom') }} 
+                {{ app.session.get('prenom') }}
+            </h2>
+            <hr>
+            <h3> Gestion des Fiches de Frais COMPTABLE </h3>
+            <table class="table-striped table-bordered table-responsive tableaux" style="text-align: center;">
+                <thead>
+                <th>
+                    Nom
+                </th>
+                <th>
+                    Prenom
+                </th>
+                <th>
+                    Adresse
+                </th>
+                <th>
+                    CP
+                </th>
+                <th>
+                    Ville
+                </th>
+                <th>
+                    Date Embauche
+                </th>
+                <th>
+                    Choix
+                </th>
+                </thead>
+                <tbody>
+                    {% for visiteur in listeVisiteur %}
+                        <tr>
+                            <td>{{ visiteur['nom'] }}</td>
+                            <td>{{ visiteur['prenom'] }}</td>
+                            <td>{{ visiteur['adresse'] }}</td>
+                            <td>{{ visiteur['cp'] }}</td>
+                            <td>{{ visiteur['ville'] }}</td>
+                            <td>{{ visiteur['dateEmbauche'] }}</td>
+                            <td>
+                                <form method="POST" {{ form_enctype(form) }}>
+                                    {{ form_widget(form.idVis, {'value': visiteur['id']}) }}
+{#                                    <input type='hidden' values='{{ visiteur['id'] }}'/>#}
+                                    <button type='submit' {#value="{{ visiteur['id'] }}"#} class="btn btn-default btn-xs btnChoixVis">Voir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% else %}
+                        La liste est vide
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    {#    <script>
+            $(document).ready(function () {
+                $('.btnChoixVis').click(function (e) {
+                    e.preventDefault();
+                    var id;
+                    id = $(this).val();
+                    console.log(id);
+                    var param = "id=" + id;
+                    $(document).load('{{ path("gsb_comptable_vuFraisVis") }}', param);
+                });
+            });
+        </script>#}
+    {#                <script src="{{ asset('bundles/gsbgsb/js/vuFicheFrais.js') }}"></script>#}
+{% endblock %}
